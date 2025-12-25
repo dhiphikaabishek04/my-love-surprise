@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Surprise For You ❤️</title>
+<style>
+body{
+background:#ffdee9;
+background: linear-gradient(#ffdee9,#b5fffc);
+font-family:Arial;
+text-align:center;
+}
+h1{
+margin-top:30px;
+color:#c70039;
+}
+.container{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:25px;
+margin-top:40px;
+}
+.box{
+width:160px;
+height:160px;
+background:white;
+border-radius:20px;
+box-shadow:0 10px 20px rgba(0,0,0,0.2);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:25px;
+cursor:pointer;
+transition:0.3s;
+}
+.box:hover{
+transform:scale(1.1);
+}
+.message{
+display:none;
+font-size:19px;
+margin-top:15px;
+color:#444;
+}
+.open{
+display:block;
+}
+</style>
+</head>
+
+<body>
+
+<h1>🎁 Surprise Boxes Just For You ❤️</h1>
+<p>Tap each box to unlock love messages 🥰</p>
+
+<div class="container">
+<div class="box" onclick="show(1)">🎁 Box 1</div>
+<div class="box" onclick="show(2)">🎁 Box 2</div>
+<div class="box" onclick="show(3)">🎁 Box 3</div>
+<div class="box" onclick="show(4)">🎁 Box 4</div>
+</div>
+
+<p id="m1" class="message">💖 First Surprise: You mean the world to me!</p>
+<p id="m2" class="message">😘 Second Surprise: Thank you for being YOU!</p>
+<p id="m3" class="message">🫶 Third Surprise: I’m so lucky to have you!</p>
+<p id="m4" class="message">💍 Final Surprise: I love you more than words can say ❤️</p>
+
+<script>
+function show(n){
+document.getElementById("m"+n).classList.toggle("open");
+}
+</script>
+
+</body>
+</html>
