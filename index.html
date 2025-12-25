@@ -1,74 +1,228 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Surprise For You ❤️</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Varuneyyy ❤️ Timeline</title>
 <style>
-body{
-background:#ffdee9;
-background: linear-gradient(#ffdee9,#b5fffc);
-font-family:Arial;
-text-align:center;
-}
-h1{
-margin-top:30px;
-color:#c70039;
-}
-.container{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:25px;
-margin-top:40px;
-}
-.box{
-width:160px;
-height:160px;
-background:white;
-border-radius:20px;
-box-shadow:0 10px 20px rgba(0,0,0,0.2);
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:25px;
-cursor:pointer;
-transition:0.3s;
-}
-.box:hover{
-transform:scale(1.1);
-}
-.message{
-display:none;
-font-size:19px;
-margin-top:15px;
-color:#444;
-}
-.open{
-display:block;
-}
+  @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+  body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: #ffe6f0;
+    overflow-x: hidden;
+  }
+
+  .hearts {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    top: 0; left: 0;
+  }
+
+  .heart {
+    position: absolute;
+    width: 15px; height: 15px;
+    background: red;
+    transform: rotate(45deg);
+    animation: float 5s linear infinite;
+  }
+
+  .heart:after, .heart:before {
+    content: '';
+    position: absolute;
+    width: 15px; height: 15px;
+    background: red;
+    border-radius: 50%;
+  }
+
+  .heart:before { top: -7.5px; left: 0; }
+  .heart:after { left: -7.5px; top: 0; }
+
+  @keyframes float {
+    0% { transform: translateY(100vh) rotate(45deg); opacity: 1; }
+    100% { transform: translateY(-10vh) rotate(45deg); opacity: 0; }
+  }
+
+  .container {
+    text-align: center;
+    padding: 50px 20px;
+    max-width: 700px;
+    margin: auto;
+  }
+
+  h1 {
+    font-family: 'Pacifico', cursive;
+    color: #ff4da6;
+    font-size: 3em;
+  }
+
+  .timeline {
+    margin-top: 40px;
+    text-align: left;
+  }
+
+  .timeline div {
+    margin: 20px 0;
+    background: #fff0f5;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    animation: fadein 1s ease forwards;
+    opacity: 0;
+  }
+
+  @keyframes fadein {
+    to { opacity: 1; }
+  }
+
+  /* Password popup */
+  #passwordBox {
+    position: fixed;
+    top:0; left:0; width:100%; height:100%;
+    background: rgba(0,0,0,0.7);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    color:#fff;
+    z-index: 9999;
+  }
+
+  #passwordBox input {
+    padding: 10px 15px;
+    font-size: 1em;
+    border-radius: 5px;
+    border: none;
+    margin-top: 10px;
+  }
+
+  #passwordBox button {
+    margin-top: 10px;
+    padding: 8px 15px;
+    border:none;
+    border-radius:5px;
+    background:#ff4da6;
+    color:white;
+    cursor:pointer;
+  }
+
 </style>
 </head>
-
 <body>
 
-<h1>🎁 Surprise Boxes Just For You ❤️</h1>
-<p>Tap each box to unlock love messages 🥰</p>
+<div class="hearts" id="heartsContainer"></div>
 
-<div class="container">
-<div class="box" onclick="show(1)">🎁 Box 1</div>
-<div class="box" onclick="show(2)">🎁 Box 2</div>
-<div class="box" onclick="show(3)">🎁 Box 3</div>
-<div class="box" onclick="show(4)">🎁 Box 4</div>
+<div id="passwordBox">
+  <h2>Varuneyyy 💖</h2>
+  <p>Enter the secret password to unlock our memories:</p>
+  <input type="password" id="pwInput" placeholder="Password">
+  <button onclick="checkPassword()">Unlock 💌</button>
 </div>
 
-<p id="m1" class="message">💖 First Surprise: You mean the world to me!</p>
-<p id="m2" class="message">😘 Second Surprise: Thank you for being YOU!</p>
-<p id="m3" class="message">🫶 Third Surprise: I’m so lucky to have you!</p>
-<p id="m4" class="message">💍 Final Surprise: I love you more than words can say ❤️</p>
+<div class="container" id="content" style="display:none;">
+  <h1>Our Love Timeline ❤️</h1>
+  <div class="timeline">
+    <div>Aug - 5 : Started talking 👉🏻👈🏻</div>
+    <div>Aug - 10 : 1st snap (Varun) 💕</div>
+    <div>Aug - 11 : 1st snap (Dhips) 💕</div>
+    <div>Aug - 12 : First photo together 🫶🏻</div>
+    <div>Aug - 20 : Confessed & 1st bike ride 💌</div>
+    <div>Aug - 27 : 1st kiss - bus ✨</div>
+    <div>Sep - 13 : 1st movie 🫂🍿</div>
+    <div>Sep - 21 : Car ride 🚙</div>
+    <div>Oct - 4 : Enaval feel 🦋</div>
+    <div>Oct - 19 : Home seek in 😫🤌🏻</div>
+    <div>Oct - 23 : Out bus 😩🦋</div>
+    <div>Nov - 29 : 1st surprise, Birds park🥺, Mall 💕</div>
+    <div>Dec 1&2 : Midnight husky call 💕</div>
+    <div>Dec - 14 : Varun's Graduation 😫💗</div>
+    <div>Dec - 19&20 : Long midnight calls 🤌🏻❤️</div>
+    <div>Dec - 21 : Dhipu's graduation 😩🫂💗</div>
+    <div>Dec - 23 : Uncle's approval 😂🤌🏻🤍</div>
+    <div>2025 🦋</div>
+    <div>Jan - 3 : Rusi restaurant meet up 😩💕</div>
+    <div>Jan - 4 : Kinder joy HARRY POTTER 🥺❤️‍🔥</div>
+    <div>Jan - 6 : Kinder joy HERMIONE 🥹❤️‍🔥 & Brought Earrings 😩💕</div>
+    <div>Jan - 16 : Classroom 🌚😂🤌🏻</div>
+    <div>Jan - 18 : Surprise earrings 😫❤️</div>
+    <div>Jan - 25 : Seek in, saree wish, yippee cooking 😩💗</div>
+    <div>Feb - 1 : Last seek in 🤧😚🫂🍟🍕🍔</div>
+    <div>Feb - 6 : Kutty bike ride, out bus, Baskin Robins 🍨😩😚💕</div>
+    <div>Feb - 14 : Cards, chocolate 🍫♥️</div>
+    <div>Feb - 21 : Bike ride, break</div>
+    <div>Feb - 28 : Book surprise - silent patient 😩💕😚</div>
+    <div>Mar - 7 : Bike ride, Movie date, Zudio shopping 😭💕😩🤌🏻</div>
+    <div>Mar - 10 : Made scrunchie with aunty 💕😩 secret kiss 💋, bike ride 😚💕</div>
+    <div>Mar - 12 : Home seek in 😫😚💕🌚 backy got some chance 😂😭🤌🏻</div>
+    <div>Mar - 13 : Met aunty alone 😩🤌🏻💕 took a kutty ride 🥹🤌🏻💗</div>
+    <div>Mar - 30 : Uthamar kovil mini date 😚💕🤌🏻</div>
+    <div>Apr - 5 : Temple visit 🥹♥️, Movie Date 😩🤌🏻, KFC 💕😚</div>
+    <div>Apr - 6 : Night ride, ice cream date 😭🤌🏻💗</div>
+    <div>Apr - 9 : Backy 🌚😂💗🤌🏻</div>
+    <div>Apr - 18 : Brought clips, handband, plants 🤌🏻🫂💕😚</div>
+    <div>May - 1&2 : Bike ride, Cappuccino date 😩💗🤌🏻</div>
+    <div>May - 4 : Took me to exam 🤌🏻💕, Michael's ice cream 😭🤌🏻🩷</div>
+    <div>May - 8 : Home Seek in 😭🫂🤌🏻💕🌚</div>
+    <div>May - 10 : Shopping 🛍💗🤌🏻, Lunch date 😫🩷🫂</div>
+    <div>May - 25 : Bike ride 😩🩷 surprise 😚😩🫂💗</div>
+    <div>June 🫀🤌🏻</div>
+    <div>📍Chennai</div>
+    <div>June 7 : Phoenix Mall 😚🩷🫂</div>
+    <div>June 8 : T Nagar 🤌🏻💗🫂</div>
+    <div>June 15 : Vandalur 🩷✨🥰</div>
+    <div>June 16 : Baby's Birthday 😘🤌🏻🫂 - Vadapalani 🥹🩷</div>
+    <div>June 21 : Temple date & Beach date 😚💗🫂</div>
+    <div>June 27 : Chennai to Trichy Bus travel 😩🌚😘🤌🏻</div>
+    <div>July 4 : Got aunty things & cafe date ❤️🫂</div>
+    <div>July 8 : Movie, lunch 😚🤌🏻💗🫂</div>
+    <div>July 28 : Morning aunty meetup 🩷🤌🏻😩</div>
+    <div>Aug 4 : Ride with uncle 🥹💕🤌🏻</div>
+    <div>Aug 11 : Home Seek in after months 😩🌚💕</div>
+    <div>Aug 18 : Bus stop with dad 🩷</div>
+    <div>Aug 24 : Burger King date 🩷😘</div>
+    <div>Aug 25 : Varun's ride with dad 😚❤️</div>
+    <div>Aug 28 : Home seek in 🌚 Unexpected meet with dad 😚🫂🩷</div>
+    <div>Oct 1 : Hospital, cakebee bike ride 🙂‍↔️💗🫂</div>
+    <div>Oct 22 : Aunty uncle wedding anniversary 💗</div>
+    <div>Dec 3 : Aunty's Birthday 🤌🏻💓</div>
+    <div>Dec 16 : Took bus to Chennai 🥺🤌🏻</div>
+    <div>Dec 17 : Bike ride, Kora food, he fed me 🥹💕🤌🏻</div>
+    <div>Dec 19 : Bike ride, Beach ⛱️, Street Food 🤌🏻🤧😘🫂</div>
+    <div>Dec 21 : Bike ride, Park, lunch 🩷🥹🫂</div>
+    <div>Dec 23 : Bike ride, Snacks, juice 😚🫂🩷</div>
+    <div>Dec 24 : Bus travel Che → Tri 🌚💕🥹🩷</div>
+  </div>
+</div>
 
 <script>
-function show(n){
-document.getElementById("m"+n).classList.toggle("open");
-}
+  const password = "iloveyouvarun"; // Set your password here
+
+  function checkPassword() {
+    let input = document.getElementById("pwInput").value;
+    if(input === password){
+      document.getElementById("passwordBox").style.display="none";
+      document.getElementById("content").style.display="block";
+      createHearts();
+    } else {
+      alert("Incorrect password 💔 Try again!");
+    }
+  }
+
+  function createHearts(){
+    const heartsContainer = document.getElementById("heartsContainer");
+    for(let i=0;i<50;i++){
+      let heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.style.left = Math.random()*100 + "vw";
+      heart.style.animationDuration = (2+Math.random()*3) + "s";
+      heart.style.opacity = Math.random();
+      heartsContainer.appendChild(heart);
+    }
+  }
 </script>
 
 </body>
